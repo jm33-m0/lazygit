@@ -89,9 +89,9 @@ func (gui *Gui) copySelectedToClipboard() error {
 	return gui.withLBLActiveCheck(func(state *LblPanelState) error {
 		selected := state.PlainRenderSelected()
 
-		gui.logAction(gui.Tr.Actions.CopySelectedTextToClipboard)
+		gui.c.LogAction(gui.c.Tr.Actions.CopySelectedTextToClipboard)
 		if err := gui.OSCommand.CopyToClipboard(selected); err != nil {
-			return gui.PopupHandler.Error(err)
+			return gui.c.Error(err)
 		}
 
 		return nil
@@ -143,7 +143,7 @@ func (gui *Gui) refreshMainViewForLineByLine(state *LblPanelState) error {
 	if gui.currentContext().GetKey() == gui.State.Contexts.PatchBuilding.GetKey() {
 		filename := gui.getSelectedCommitFileName()
 		var err error
-		includedLineIndices, err = gui.Git.Patch.PatchManager.GetFileIncLineIndices(filename)
+		includedLineIndices, err = gui.git.Patch.PatchManager.GetFileIncLineIndices(filename)
 		if err != nil {
 			return err
 		}
@@ -288,5 +288,5 @@ func (gui *Gui) handleLineByLineEdit() error {
 	}
 
 	lineNumber := gui.State.Panels.LineByLine.CurrentLineNumber()
-	return gui.editFileAtLine(file.Name, lineNumber)
+	return gui.fileHelper.EditFileAtLine(file.Name, lineNumber)
 }
