@@ -6,6 +6,7 @@ import (
 	"github.com/jesseduffield/gocui"
 	"github.com/jesseduffield/lazygit/pkg/commands/patch"
 	"github.com/jesseduffield/lazygit/pkg/gui/popup"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -34,14 +35,14 @@ func setupGuiForTest(gui *Gui) {
 }
 
 func TestIncreasesContextInDiffViewByOneInContextWithDiff(t *testing.T) {
-	contexts := []func(gui *Gui) Context{
-		func(gui *Gui) Context { return gui.State.Contexts.Files },
-		func(gui *Gui) Context { return gui.State.Contexts.BranchCommits },
-		func(gui *Gui) Context { return gui.State.Contexts.CommitFiles },
-		func(gui *Gui) Context { return gui.State.Contexts.Stash },
-		func(gui *Gui) Context { return gui.State.Contexts.Staging },
-		func(gui *Gui) Context { return gui.State.Contexts.PatchBuilding },
-		func(gui *Gui) Context { return gui.State.Contexts.SubCommits },
+	contexts := []func(gui *Gui) types.Context{
+		func(gui *Gui) types.Context { return gui.State.Contexts.Files },
+		func(gui *Gui) types.Context { return gui.State.Contexts.BranchCommits },
+		func(gui *Gui) types.Context { return gui.State.Contexts.CommitFiles },
+		func(gui *Gui) types.Context { return gui.State.Contexts.Stash },
+		func(gui *Gui) types.Context { return gui.State.Contexts.Staging },
+		func(gui *Gui) types.Context { return gui.State.Contexts.PatchBuilding },
+		func(gui *Gui) types.Context { return gui.State.Contexts.SubCommits },
 	}
 
 	for _, c := range contexts {
@@ -58,18 +59,18 @@ func TestIncreasesContextInDiffViewByOneInContextWithDiff(t *testing.T) {
 }
 
 func TestDoesntIncreaseContextInDiffViewInContextWithoutDiff(t *testing.T) {
-	contexts := []func(gui *Gui) Context{
-		func(gui *Gui) Context { return gui.State.Contexts.Status },
-		func(gui *Gui) Context { return gui.State.Contexts.Submodules },
-		func(gui *Gui) Context { return gui.State.Contexts.Remotes },
-		func(gui *Gui) Context { return gui.State.Contexts.Normal },
-		func(gui *Gui) Context { return gui.State.Contexts.ReflogCommits },
-		func(gui *Gui) Context { return gui.State.Contexts.RemoteBranches },
-		func(gui *Gui) Context { return gui.State.Contexts.Tags },
+	contexts := []func(gui *Gui) types.Context{
+		func(gui *Gui) types.Context { return gui.State.Contexts.Status },
+		func(gui *Gui) types.Context { return gui.State.Contexts.Submodules },
+		func(gui *Gui) types.Context { return gui.State.Contexts.Remotes },
+		func(gui *Gui) types.Context { return gui.State.Contexts.Normal },
+		func(gui *Gui) types.Context { return gui.State.Contexts.ReflogCommits },
+		func(gui *Gui) types.Context { return gui.State.Contexts.RemoteBranches },
+		func(gui *Gui) types.Context { return gui.State.Contexts.Tags },
 		// not testing this because it will kick straight back to the files context
 		// upon pushing the context
-		// func(gui *Gui) Context { return gui.State.Contexts.Merging },
-		func(gui *Gui) Context { return gui.State.Contexts.CommandLog },
+		// func(gui *Gui) types.Context { return gui.State.Contexts.Merging },
+		func(gui *Gui) types.Context { return gui.State.Contexts.CommandLog },
 	}
 
 	for _, c := range contexts {
@@ -86,14 +87,14 @@ func TestDoesntIncreaseContextInDiffViewInContextWithoutDiff(t *testing.T) {
 }
 
 func TestDecreasesContextInDiffViewByOneInContextWithDiff(t *testing.T) {
-	contexts := []func(gui *Gui) Context{
-		func(gui *Gui) Context { return gui.State.Contexts.Files },
-		func(gui *Gui) Context { return gui.State.Contexts.BranchCommits },
-		func(gui *Gui) Context { return gui.State.Contexts.CommitFiles },
-		func(gui *Gui) Context { return gui.State.Contexts.Stash },
-		func(gui *Gui) Context { return gui.State.Contexts.Staging },
-		func(gui *Gui) Context { return gui.State.Contexts.PatchBuilding },
-		func(gui *Gui) Context { return gui.State.Contexts.SubCommits },
+	contexts := []func(gui *Gui) types.Context{
+		func(gui *Gui) types.Context { return gui.State.Contexts.Files },
+		func(gui *Gui) types.Context { return gui.State.Contexts.BranchCommits },
+		func(gui *Gui) types.Context { return gui.State.Contexts.CommitFiles },
+		func(gui *Gui) types.Context { return gui.State.Contexts.Stash },
+		func(gui *Gui) types.Context { return gui.State.Contexts.Staging },
+		func(gui *Gui) types.Context { return gui.State.Contexts.PatchBuilding },
+		func(gui *Gui) types.Context { return gui.State.Contexts.SubCommits },
 	}
 
 	for _, c := range contexts {
@@ -110,18 +111,18 @@ func TestDecreasesContextInDiffViewByOneInContextWithDiff(t *testing.T) {
 }
 
 func TestDoesntDecreaseContextInDiffViewInContextWithoutDiff(t *testing.T) {
-	contexts := []func(gui *Gui) Context{
-		func(gui *Gui) Context { return gui.State.Contexts.Status },
-		func(gui *Gui) Context { return gui.State.Contexts.Submodules },
-		func(gui *Gui) Context { return gui.State.Contexts.Remotes },
-		func(gui *Gui) Context { return gui.State.Contexts.Normal },
-		func(gui *Gui) Context { return gui.State.Contexts.ReflogCommits },
-		func(gui *Gui) Context { return gui.State.Contexts.RemoteBranches },
-		func(gui *Gui) Context { return gui.State.Contexts.Tags },
+	contexts := []func(gui *Gui) types.Context{
+		func(gui *Gui) types.Context { return gui.State.Contexts.Status },
+		func(gui *Gui) types.Context { return gui.State.Contexts.Submodules },
+		func(gui *Gui) types.Context { return gui.State.Contexts.Remotes },
+		func(gui *Gui) types.Context { return gui.State.Contexts.Normal },
+		func(gui *Gui) types.Context { return gui.State.Contexts.ReflogCommits },
+		func(gui *Gui) types.Context { return gui.State.Contexts.RemoteBranches },
+		func(gui *Gui) types.Context { return gui.State.Contexts.Tags },
 		// not testing this because it will kick straight back to the files context
 		// upon pushing the context
-		// func(gui *Gui) Context { return gui.State.Contexts.Merging },
-		func(gui *Gui) Context { return gui.State.Contexts.CommandLog },
+		// func(gui *Gui) types.Context { return gui.State.Contexts.Merging },
+		func(gui *Gui) types.Context { return gui.State.Contexts.CommandLog },
 	}
 
 	for _, c := range contexts {
