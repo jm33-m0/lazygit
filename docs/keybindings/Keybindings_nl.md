@@ -10,21 +10,20 @@ _This file is auto-generated. To update, make the changes in the pkg/i18n direct
   <kbd>pgdown</kbd>: scroll naar beneden vanaf hoofdpaneel (fn+down)
   <kbd>m</kbd>: bekijk merge/rebase opties
   <kbd>ctrl+p</kbd>: bekijk aangepaste patch opties
-  <kbd>P</kbd>: push
-  <kbd>p</kbd>: pull
   <kbd>R</kbd>: verversen
   <kbd>x</kbd>: open menu
-  <kbd>z</kbd>: ongedaan maken (via reflog) (experimenteel)
-  <kbd>ctrl+z</kbd>: redo (via reflog) (experimenteel)
   <kbd>+</kbd>: volgende scherm modus (normaal/half/groot)
   <kbd>_</kbd>: vorige scherm modus
-  <kbd>:</kbd>: voor aangepaste commando uit
   <kbd>ctrl+s</kbd>: bekijk scoping opties
   <kbd>W</kbd>: open diff menu
   <kbd>ctrl+e</kbd>: open diff menu
   <kbd>@</kbd>: open command log menu
   <kbd>}</kbd>: Increase the size of the context shown around changes in the diff view
   <kbd>{</kbd>: Decrease the size of the context shown around changes in the diff view
+  <kbd>z</kbd>: ongedaan maken (via reflog) (experimenteel)
+  <kbd>ctrl+z</kbd>: redo (via reflog) (experimenteel)
+  <kbd>P</kbd>: push
+  <kbd>p</kbd>: pull
 </pre>
 
 ## Lijstpaneel Navigatie
@@ -170,20 +169,20 @@ _This file is auto-generated. To update, make the changes in the pkg/i18n direct
   <kbd>@</kbd>: open command log menu
 </pre>
 
-## Bestanden Paneel
-
-<pre>
-  <kbd>ctrl+b</kbd>: Commit dossiers filteren
-</pre>
-
 ## Bestanden Paneel (Bestanden)
 
 <pre>
+  <kbd>d</kbd>: bekijk 'veranderingen ongedaan maken' opties
+  <kbd>D</kbd>: bekijk reset opties
+  <kbd>f</kbd>: fetch
+  <kbd>ctrl+o</kbd>: kopieer de bestandsnaam naar het klembord
+  <kbd>ctrl+w</kbd>: Toggle whether or not whitespace changes are shown in the diff view
+  <kbd>space</kbd>: toggle staged
+  <kbd>ctrl+b</kbd>: Filter files (staged/unstaged)
   <kbd>c</kbd>: Commit veranderingen
   <kbd>w</kbd>: commit veranderingen zonder pre-commit hook
   <kbd>A</kbd>: wijzig laatste commit
   <kbd>C</kbd>: commit veranderingen met de git editor
-  <kbd>d</kbd>: bekijk 'veranderingen ongedaan maken' opties
   <kbd>e</kbd>: verander bestand
   <kbd>o</kbd>: open bestand
   <kbd>i</kbd>: voeg toe aan .gitignore
@@ -191,15 +190,11 @@ _This file is auto-generated. To update, make the changes in the pkg/i18n direct
   <kbd>s</kbd>: stash-bestanden
   <kbd>S</kbd>: bekijk stash opties
   <kbd>a</kbd>: toggle staged alle
-  <kbd>D</kbd>: bekijk reset opties
   <kbd>enter</kbd>: stage individuele hunks/lijnen
-  <kbd>f</kbd>: fetch
-  <kbd>ctrl+o</kbd>: kopieer de bestandsnaam naar het klembord
+  <kbd>:</kbd>: voor aangepaste commando uit
   <kbd>g</kbd>: bekijk upstream reset opties
   <kbd>`</kbd>: toggle bestandsboom weergave
   <kbd>M</kbd>: open external merge tool (git mergetool)
-  <kbd>ctrl+w</kbd>: Toggle whether or not whitespace changes are shown in the diff view
-  <kbd>space</kbd>: toggle staged
 </pre>
 
 ## Bestanden Paneel (Submodules)
