@@ -584,7 +584,7 @@ func (self *FilesController) switchToMerge() error {
 		return nil
 	}
 
-	self.switchToMergeFn(path)
+	return self.switchToMergeFn(file.Name)
 }
 
 func (self *FilesController) handleCustomCommand() error {

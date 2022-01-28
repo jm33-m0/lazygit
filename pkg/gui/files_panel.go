@@ -301,19 +301,7 @@ func (gui *Gui) findNewSelectedIdx(prevNodes []*filetree.FileNode, currNodes []*
 
 func (gui *Gui) onFocusFile() error {
 	gui.takeOverMergeConflictScrolling()
-
-	if gui.State.Panels.Merging.GetPath() != file.Name {
-		hasConflicts, err := gui.setMergeStateWithLock(file.Name)
-		if err != nil {
-			return err
-		}
-		if !hasConflicts {
-			return nil
-		}
-	}
-
-	// TODO: this can't be right.
-	return gui.pushContext(gui.State.Contexts.Merging)
+	return nil
 }
 
 func (gui *Gui) getSetTextareaTextFn(getView func() *gocui.View) func(string) {
