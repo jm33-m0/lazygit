@@ -436,7 +436,7 @@ func (self *LocalCommitsController) handleCommitMoveDown() error {
 		if err := self.git.Rebase.MoveTodoDown(index); err != nil {
 			return self.c.Error(err)
 		}
-		self.getContext().HandleNextLine()
+		_ = self.getContext().HandleNextLine()
 		return self.c.Refresh(types.RefreshOptions{
 			Mode: types.SYNC, Scope: []types.RefreshableView{types.REBASE_COMMITS},
 		})
@@ -446,7 +446,7 @@ func (self *LocalCommitsController) handleCommitMoveDown() error {
 		self.c.LogAction(self.c.Tr.Actions.MoveCommitDown)
 		err := self.git.Rebase.MoveCommitDown(self.getCommits(), index)
 		if err == nil {
-			self.getContext().HandleNextLine()
+			_ = self.getContext().HandleNextLine()
 		}
 		return self.checkMergeOrRebase(err)
 	})
@@ -471,7 +471,7 @@ func (self *LocalCommitsController) handleCommitMoveUp() error {
 		if err := self.git.Rebase.MoveTodoDown(index - 1); err != nil {
 			return self.c.Error(err)
 		}
-		self.getContext().HandlePrevLine()
+		_ = self.getContext().HandlePrevLine()
 		return self.c.Refresh(types.RefreshOptions{
 			Mode: types.SYNC, Scope: []types.RefreshableView{types.REBASE_COMMITS},
 		})
@@ -481,7 +481,7 @@ func (self *LocalCommitsController) handleCommitMoveUp() error {
 		self.c.LogAction(self.c.Tr.Actions.MoveCommitUp)
 		err := self.git.Rebase.MoveCommitDown(self.getCommits(), index-1)
 		if err == nil {
-			self.getContext().HandlePrevLine()
+			_ = self.getContext().HandlePrevLine()
 		}
 		return self.checkMergeOrRebase(err)
 	})
@@ -549,7 +549,7 @@ func (self *LocalCommitsController) createRevertMergeCommitMenu(commit *models.C
 }
 
 func (self *LocalCommitsController) afterRevertCommit() error {
-	self.getContext().HandleNextLine()
+	_ = self.getContext().HandleNextLine()
 	return self.c.Refresh(types.RefreshOptions{
 		Mode: types.BLOCK_UI, Scope: []types.RefreshableView{types.COMMITS, types.BRANCHES},
 	})
@@ -647,7 +647,7 @@ func (self *LocalCommitsController) gotoBottom() error {
 		}
 	}
 
-	self.getContext().HandleGotoBottom()
+	_ = self.getContext().HandleGotoBottom()
 
 	return nil
 }

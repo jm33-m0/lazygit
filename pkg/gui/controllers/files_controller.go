@@ -253,17 +253,6 @@ func (self *FilesController) checkSelectedFileNode(callback func(*filetree.FileN
 	}
 }
 
-func (self *FilesController) checkSelectedFile(callback func(*models.File) error) func() error {
-	return func() error {
-		file := self.getSelectedFile()
-		if file == nil {
-			return nil
-		}
-
-		return callback(file)
-	}
-}
-
 func (self *FilesController) Context() types.Context {
 	return self.getContext()
 }
